@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AuthForm from "./components/AuthForm";
+import AuthTemplate from "./components/AuthTemplate";
+import useAuth from "./hooks/useAuth";
 
 function App() {
+  const { id, password, onChange, onSubmit } = useAuth();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthTemplate>
+      <AuthForm
+        id={id}
+        password={password}
+        onChange={onChange}
+        onSubmit={onSubmit}
+      />
+    </AuthTemplate>
   );
 }
 
