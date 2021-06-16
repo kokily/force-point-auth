@@ -1,5 +1,6 @@
 import React, { useCallback, useReducer } from "react";
 import axios from 'axios';
+import jsCookie from 'js-cookie';
 
 interface StateProps {
   id: string;
@@ -33,12 +34,24 @@ function useAuth() {
     e.preventDefault();
 
     try {
+      let formData = new FormData();
+
+      formData.append('id', id);
+      formData.append('password', password);
+
       await axios
-        .post('http://3.34.5.214:8080/login', {
-          id,
-          password,
+        .post('/customLogin', formData)
+        .then((res) => {
+          const token = jsCookie.get('JSESSIONID');
+
+          if (!token) {
+            alert('Session Lost');
+            return;
+          } else {
+            localStorage.setItem('jsessionId', token);
+            document.location.href = '/';
+          }
         })
-        .then((res) => {})
         .catch((err) => console.error(err));
     } catch (err) {
       alert(err);
