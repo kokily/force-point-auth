@@ -3,6 +3,14 @@ import styled from 'styled-components';
 import oc from 'open-color';
 
 // Styles
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+`;
+
 const InputGroup = styled.div`
   position: relative;
   width: 100%;
@@ -102,7 +110,7 @@ const AuthForm: React.FC<Props> = ({ id, password, onChange, onSubmit }) => {
   };
 
   return (
-    <>
+    <Container>
       <InputGroup>
         <Input type="text" name="id" value={id} onChange={onChange} required />
         <span className="bar" />
@@ -124,7 +132,7 @@ const AuthForm: React.FC<Props> = ({ id, password, onChange, onSubmit }) => {
         <div className="layer">어서오세요!</div>
         로그인
       </Button>
-    </>
+    </Container>
   );
 };
 

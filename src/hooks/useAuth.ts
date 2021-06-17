@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from "react";
+import React, { useCallback, useReducer } from 'react';
 import axios from 'axios';
 import jsCookie from 'js-cookie';
 
@@ -42,6 +42,7 @@ function useAuth() {
       await axios
         .post('/customLogin', formData)
         .then((res) => {
+          console.log(res.status);
           const token = jsCookie.get('JSESSIONID');
 
           if (!token) {
@@ -56,7 +57,7 @@ function useAuth() {
     } catch (err) {
       alert(err);
     }
-  }
+  };
 
   return {
     id,

@@ -6,7 +6,7 @@ import { shadow } from "../styles";
 // Styles
 const Container = styled.div`
   position: absolute;
-  width: 320px;
+  width: 420px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -20,12 +20,14 @@ const Container = styled.div`
     justify-content: center;
     a {
       color: white;
-      font-size: 2.4rem;
-      font-weight: 800;
+      font-size: 2rem;
+      font-weight: 700;
       text-decoration: none;
     }
   }
   .content {
+    display: flex;
+    justify-content: center;
     background: white;
     padding: 2rem;
     height: auto;
@@ -46,7 +48,7 @@ const AuthTemplate: React.FC<Props> = ({ children }) => {
   return (
     <Container>
       <div className="logo">
-        <a href="/">Force Point</a>
+        <a href="/">Forcepoint Insider Threat</a>
       </div>
 
       <div className="content">{children}</div>
